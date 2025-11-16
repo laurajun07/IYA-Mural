@@ -1,0 +1,281 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.40.1)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "stagnantPaperPlane" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (1.43117, -1.5707963, 0)
+        }
+        references = @stagnantPaperPlane.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.5336603, -0.46390375, -0.53366023, -0.46390373)
+        float3 xformOp:scale = (0.1, 0.1, 0.1)
+        float3 xformOp:translate = (-4.40204, 1.9999676, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "RCP_BehaviorsContainer"
+        {
+            rel behaviors = </Root/stagnantPaperPlane/OnTap>
+            uniform token info:id = "RCP.BehaviorsContainer"
+        }
+
+        def Preliminary_Behavior "OnTap"
+        {
+            rel actions = </Root/stagnantPaperPlane/OnTap/Action>
+            uniform bool exclusive
+            rel triggers = </Root/stagnantPaperPlane/OnTap/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Root/stagnantPaperPlane>
+                token info:id = "TapGesture"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/Timeline>
+                rel animationLibraryKeyOverrideKey = </Root/stagnantPaperPlane/OnTap/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
+        }
+
+        def RealityKitComponent "SpatialAudio"
+        {
+            uniform token info:id = "RealityKit.SpatialAudio"
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["whoosh-cinematic-hd-379081.mp3"]
+                rel values = </Root/whoosh_cinematic_hd_379081_mp3>
+            }
+        }
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        reorder nameChildren = ["Track2", "Track", "Track3", "Track4", "Track5"]
+        def RealityKitTrack "Track2"
+        {
+            reorder nameChildren = ["Transform_By", "Transform_By2", "Spin"]
+            def RealityKitAction "Transform_By"
+            {
+                string actionKind = "moveBy"
+                int blendLayer = 300
+                double duration = 2
+                uniform token info:id = "76396A1E-36DF-4BFE-87C8-B18E230B9D9B"
+                float3 position = (0, 16.362263, 0.00028419495)
+                quatf rotation = (0.9961947, -0.087155744, 0, 0)
+                double startTime = 0
+                rel target = </Root/stagnantPaperPlane>
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeIn"
+                }
+            }
+
+            def RealityKitAction "Transform_By2"
+            {
+                string actionKind = "moveBy"
+                int blendLayer = 300
+                double duration = 2.5110401649473797
+                uniform token info:id = "7CC76354-6E5E-4FF6-A33F-AA98B59EE27E"
+                float3 position = (0.00059890747, 31.036861, -3.062729)
+                quatf rotation = (1, 0, 0, 0)
+                double startTime = 2.0000000001
+                rel target = </Root/stagnantPaperPlane>
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "linear"
+                }
+            }
+
+            def RealityKitAction "Transform_To"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 1
+                uniform token info:id = "6CAA35B2-33DF-4F66-9984-766BCA3655C4"
+                float3 position = (0, 2, -2)
+                quatf rotation = (0.53366035, -0.46390373, -0.53366023, -0.46390373)
+                float3 scale = (0.001, 0.001, 0.001)
+                double startTime = 4.51903052426097
+                rel target = </Root/stagnantPaperPlane>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track"
+        {
+            reorder nameChildren = ["Spin", "Transform_To"]
+            def RealityKitAction "Spin"
+            {
+                string actionKind = "spin"
+                int blendLayer = 400
+                double duration = 2.2982038655412915
+                uniform token info:id = "9EBD7A87-C296-41FF-87B7-D5669734E990"
+                double startTime = 1.0707909503206778
+                rel target = </Root/stagnantPaperPlane>
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            def RealityKitAction "Hide"
+            {
+                string actionKind = "hide"
+                int blendLayer = 300
+                double duration = 4.536366960950036
+                uniform token info:id = "59B0B2B7-95E3-4A54-9726-5BC734D72EE3"
+                double startTime = 0
+                rel target = </Root/IYHMessage>
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+
+            def RealityKitAction "Show"
+            {
+                string actionKind = "show"
+                int blendLayer = 300
+                double duration = 1
+                uniform token info:id = "ACD815F8-3F28-4509-B99D-E261D59C4851"
+                double startTime = 4.536366961050036
+                rel target = </Root/IYHMessage>
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track4"
+        {
+            def RealityKitAction "Transform_By"
+            {
+                string actionKind = "moveBy"
+                int blendLayer = 300
+                double duration = 1
+                uniform token info:id = "4D57A7AB-D39D-4DB7-893D-5F6D30D391B0"
+                float3 scale = (200, 200, 200)
+                double startTime = 4.535136053268747
+                rel target = </Root/IYHMessage>
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "whoosh-cinematic-hd-379081.mp3"
+                bool controlPlayback = 1
+                double duration = 2.1159166666666667
+                uniform token info:id = "08961C6F-5D7D-4D05-B24E-FB47B50168CD"
+                double startTime = 0.6551398286296131
+                rel target = </Root/stagnantPaperPlane>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track5"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "success-340660.mp3"
+                bool controlPlayback = 1
+                double duration = 2.802135282835978
+                uniform token info:id = "6C7F9A63-7040-4032-8052-5883C4154CB9"
+                double startTime = 4.455398842720021
+                rel target = </Root/IYHMessage>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def "IYHMessage" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.570796, -1.5707963, -3.1415925)
+        }
+        references = @IYHMessage.usdc@
+    )
+    {
+        reorder nameChildren = ["Cube", "_materials", "Text", "env_light", "HierarchicalFade", "AudioLibrary"]
+        quatf xformOp:orient = (0.5, -0.5, -0.49999997, -0.50000006)
+        float3 xformOp:scale = (0.001, 0.001, 0.001)
+        float3 xformOp:translate = (-0.00204, 1.9999676, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "HierarchicalFade"
+        {
+            uniform token info:id = "RealityKit.HierarchicalFade"
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["success-340660.mp3"]
+                rel values = </Root/success_340660_mp3>
+            }
+        }
+    }
+
+    def RealityKitAudioFile "whoosh_cinematic_hd_379081_mp3"
+    {
+        uniform asset file = @whoosh-cinematic-hd-379081.mp3@
+        uniform bool shouldLoop = 0
+    }
+
+    def RealityKitAudioFile "success_340660_mp3"
+    {
+        uniform asset file = @success-340660.mp3@
+        uniform bool shouldLoop = 0
+    }
+}
+

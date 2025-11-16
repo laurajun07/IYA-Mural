@@ -1,0 +1,108 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.8.1)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "noFireRocket" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.570796, 3.1415927, 0)
+        }
+        references = @noFireRocket.usdc@
+    )
+    {
+        quatf xformOp:orient = (-3.090862e-8, 3.090862e-8, 0.70710677, 0.70710677)
+        float3 xformOp:scale = (0.1, 0.1, 0.1)
+        float3 xformOp:translate = (-0.5, 2, 2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (7.631626, 5.9676075, 7.591773)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.15563011, 0.6606488, 2.0813584)
+                }
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["paper-collect-3-186600.mp3"]
+                rel values = </Root/paper_collect_3_186600_mp3>
+            }
+        }
+    }
+
+    def RealityKitAudioFile "paper_collect_3_186600_mp3"
+    {
+        uniform asset file = @paper-collect-3-186600.mp3@
+        uniform bool shouldLoop = 0
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        reorder nameChildren = ["Track", "Track2", "Track3"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "paper-collect-3-186600.mp3"
+                bool controlPlayback = 1
+                double duration = 0.40800000000000003
+                uniform token info:id = "E5E18E3B-61EF-4DCC-AF64-BF9F6100D554"
+                double startTime = 0
+                rel target = </Root/noFireRocket>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            def RealityKitAction "Transform_By"
+            {
+                string actionKind = "moveBy"
+                int blendLayer = 300
+                double duration = 0.4
+                uniform token info:id = "0051BF77-5F9A-4D54-B3EB-5F5E7ED91E78"
+                float3 scale = (0.01, 0.01, 0.01)
+                double startTime = 0
+                rel target = </Root/noFireRocket>
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,24 @@
+{
+  "pathsToIds" : {
+    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "70F99620-18FE-438F-B2D5-5E0DA02AB759",
+    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "388995CA-80FC-432E-BA88-78270E4EFD9D",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/LightbulbScene.usda" : "8D6B3EA7-6D4D-4813-B7DA-F427A86ABCAE",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/PaperPlaneScene.usda" : "AF4D38B4-D58D-45E5-A6AC-BB3989AECF93",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/RocketScene.usda" : "72947A4D-32DF-4A6D-8FAC-13506B394F5B",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "90C576A0-F90A-43B8-9998-14918A66F863",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/TrainScene.usda" : "3F9F42EF-C3B7-4534-A9CB-0456387AEE84",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/noFireRocket.usdc" : "78168790-FE69-43C5-AA81-AAA34EFFB722",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/stagnantPaperPlane.usdc" : "1FDF7640-868D-4F5D-8CCB-B7368DDAD2D2"
+  },
+  "projectID" : 3010700446530579558,
+  "uuidToIntID" : {
+    "1FDF7640-868D-4F5D-8CCB-B7368DDAD2D2" : 8172392511649208578,
+    "3F9F42EF-C3B7-4534-A9CB-0456387AEE84" : 3724224542651152092,
+    "72947A4D-32DF-4A6D-8FAC-13506B394F5B" : -9077373739794856988,
+    "78168790-FE69-43C5-AA81-AAA34EFFB722" : -906543437368002641,
+    "8D6B3EA7-6D4D-4813-B7DA-F427A86ABCAE" : -4734117025603027123,
+    "90C576A0-F90A-43B8-9998-14918A66F863" : 5509161831675829252,
+    "AF4D38B4-D58D-45E5-A6AC-BB3989AECF93" : 7115220143230310510
+  }
+}
